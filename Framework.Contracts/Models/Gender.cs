@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Framework.Contracts.Models
+{
+    public enum Gender
+    {
+
+        [Description("Мужской")]
+        Male = 1,
+
+        [Description("Женский")]
+        Female = 2,
+
+        
+    }
+}
