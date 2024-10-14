@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Framework.Manager;
+using Storege.Memory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,9 @@ namespace Admission_Committee
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            var storage = new StudentStorage();
+            var manager = new StudentManager(storage);
+            Application.Run(new MainForm(manager));
         }
     }
 }

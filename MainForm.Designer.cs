@@ -39,7 +39,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.AllStudentsStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.StudentWithEnoughScoresStats = new System.Windows.Forms.ToolStripStatusLabel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DG_students = new System.Windows.Forms.DataGridView();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BirthDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +51,7 @@
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DG_students)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -99,6 +99,7 @@
             this.AddBut.Name = "AddBut";
             this.AddBut.Size = new System.Drawing.Size(29, 24);
             this.AddBut.Text = "toolStripButton1";
+            this.AddBut.Click += new System.EventHandler(this.AddBut_Click);
             // 
             // EditBut
             // 
@@ -108,6 +109,7 @@
             this.EditBut.Name = "EditBut";
             this.EditBut.Size = new System.Drawing.Size(29, 24);
             this.EditBut.Text = "toolStripButton2";
+            this.EditBut.Click += new System.EventHandler(this.EditBut_Click);
             // 
             // DeletBut
             // 
@@ -117,6 +119,7 @@
             this.DeletBut.Name = "DeletBut";
             this.DeletBut.Size = new System.Drawing.Size(29, 24);
             this.DeletBut.Text = "toolStripButton3";
+            this.DeletBut.Click += new System.EventHandler(this.DeletBut_Click);
             // 
             // statusStrip1
             // 
@@ -135,7 +138,6 @@
             this.AllStudentsStatus.Name = "AllStudentsStatus";
             this.AllStudentsStatus.Size = new System.Drawing.Size(116, 20);
             this.AllStudentsStatus.Text = "AllStudentsStats";
-            this.AllStudentsStatus.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // StudentWithEnoughScoresStats
             // 
@@ -143,10 +145,12 @@
             this.StudentWithEnoughScoresStats.Size = new System.Drawing.Size(102, 20);
             this.StudentWithEnoughScoresStats.Text = "EnoughScores";
             // 
-            // dataGridView1
+            // DG_students
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DG_students.AllowUserToAddRows = false;
+            this.DG_students.AllowUserToDeleteRows = false;
+            this.DG_students.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DG_students.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StudentName,
             this.Gender,
             this.BirthDay,
@@ -155,17 +159,19 @@
             this.ScoresRus,
             this.ScoresIT,
             this.SumScores});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 58);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1026, 363);
-            this.dataGridView1.TabIndex = 3;
+            this.DG_students.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DG_students.Location = new System.Drawing.Point(0, 55);
+            this.DG_students.Name = "DG_students";
+            this.DG_students.ReadOnly = true;
+            this.DG_students.RowHeadersWidth = 51;
+            this.DG_students.RowTemplate.Height = 24;
+            this.DG_students.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DG_students.Size = new System.Drawing.Size(1026, 369);
+            this.DG_students.TabIndex = 3;
             // 
             // StudentName
             // 
+            this.StudentName.DataPropertyName = "Name";
             this.StudentName.HeaderText = "ФИО";
             this.StudentName.MinimumWidth = 6;
             this.StudentName.Name = "StudentName";
@@ -174,6 +180,7 @@
             // 
             // Gender
             // 
+            this.Gender.DataPropertyName = "Gender";
             this.Gender.HeaderText = "Пол";
             this.Gender.MinimumWidth = 6;
             this.Gender.Name = "Gender";
@@ -182,6 +189,7 @@
             // 
             // BirthDay
             // 
+            this.BirthDay.DataPropertyName = "BirthDay";
             this.BirthDay.HeaderText = "Дата рождения";
             this.BirthDay.MinimumWidth = 6;
             this.BirthDay.Name = "BirthDay";
@@ -190,6 +198,7 @@
             // 
             // EducationForm
             // 
+            this.EducationForm.DataPropertyName = "EducationForm";
             this.EducationForm.HeaderText = "Форма обученя";
             this.EducationForm.MinimumWidth = 6;
             this.EducationForm.Name = "EducationForm";
@@ -198,6 +207,7 @@
             // 
             // ScoresMath
             // 
+            this.ScoresMath.DataPropertyName = "MathScore";
             this.ScoresMath.HeaderText = "Баллы по математике";
             this.ScoresMath.MinimumWidth = 6;
             this.ScoresMath.Name = "ScoresMath";
@@ -206,6 +216,7 @@
             // 
             // ScoresRus
             // 
+            this.ScoresRus.DataPropertyName = "RusScore";
             this.ScoresRus.HeaderText = "Баллы по русскому";
             this.ScoresRus.MinimumWidth = 6;
             this.ScoresRus.Name = "ScoresRus";
@@ -214,6 +225,7 @@
             // 
             // ScoresIT
             // 
+            this.ScoresIT.DataPropertyName = "ITScore";
             this.ScoresIT.HeaderText = "Баллы по информатике";
             this.ScoresIT.MinimumWidth = 6;
             this.ScoresIT.Name = "ScoresIT";
@@ -222,31 +234,33 @@
             // 
             // SumScores
             // 
+            this.SumScores.DataPropertyName = "SumScores";
             this.SumScores.HeaderText = "Всего баллов";
             this.SumScores.MinimumWidth = 6;
             this.SumScores.Name = "SumScores";
             this.SumScores.ReadOnly = true;
             this.SumScores.Width = 125;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DG_students);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Приемная комиссия";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DG_students)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,7 +278,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel AllStudentsStatus;
         private System.Windows.Forms.ToolStripStatusLabel StudentWithEnoughScoresStats;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DG_students;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthDay;

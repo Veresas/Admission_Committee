@@ -14,7 +14,6 @@ namespace Storege.Memory
 
         private List<Student> students;
 
-
         public StudentStorage()
         {
             students = new List<Student>();
@@ -47,7 +46,9 @@ namespace Storege.Memory
                 target.Gender = student.Gender;
                 target.BirthDay = student.BirthDay;
                 target.Education = student.Education;
-                target.ExamReslt = student.ExamReslt;
+                target.MathScores = student.MathScores;
+                target.ITScores = student.ITScores;
+                target.RusScores = student.RusScores;
             }
 
             return Task.CompletedTask;

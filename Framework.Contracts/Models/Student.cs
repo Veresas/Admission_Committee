@@ -15,9 +15,11 @@ namespace Framework.Contracts.Models
         [StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
         public Gender Gender { get; set; }
-        public DateTime BirthDay { get; set; }
+        public DateTime BirthDay { get; set; } = new DateTime(2000, 1, 1);
         public EducationFrom Education { get; set; }
-        public Dictionary<string, int> ExamReslt { get; set; }
-
+        public int MathScores {  get; set; }
+        public int RusScores { get; set; }
+        public int ITScores { get; set; }
+        public int SumScores => MathScores + RusScores + ITScores;
     }
 }

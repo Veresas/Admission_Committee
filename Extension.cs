@@ -1,6 +1,7 @@
 ﻿using Framework.Contracts.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -20,15 +21,25 @@ namespace Admission_Committee
             where TCombobox : System.Windows.Forms.ComboBox
             where TSource : Enum
         {
-            foreach (var item in Enum.GetValues(source.GetType()))
-            {
-                target.Items.Add(item);
-            }
-            if (target.Items.Count > 0)
-            {
-                target.SelectedIndex = 0;
-            }
+            var data = Enum.GetValues(source.GetType())
+               .Cast<Enum>()
+               .Select(e => new { Value = e, Description = GetEnumDescription(e) })
+               .ToList();
+
+            target.DataSource = data;
+            target.DisplayMember = "Description";
+            target.ValueMember = "Value";
         }
+
+        public static string GetEnumDescription(Enum value)
+        {
+            var field = value.GetType().GetField(value.ToString());
+            var attribute = field.GetCustomAttributes(typeof(DescriptionAttribute), false)
+                                 .FirstOrDefault() as DescriptionAttribute;
+
+            return attribute == null ? value.ToString() : attribute.Description;
+        }
+
         public static void AddBinding<TControl, TSource>(this TControl target,
              Expression<Func<TControl, object>> targetProperty,
              TSource source,
@@ -64,7 +75,6 @@ namespace Admission_Committee
                 }
             }
         }
-
         private static string GetMemberName<TItem, TMember>(Expression<Func<TItem, TMember>> targetMember)
         {
             if (targetMember.Body is MemberExpression memberExpression)
