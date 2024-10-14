@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Framework.Contracts.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,10 @@ using System.Windows.Forms;
 
 namespace Admission_Committee
 {
-    public partial class Form1 : Form
+    public partial class DialogForm : Form
     {
-        public Form1()
+        private Student student;
+        public DialogForm(Student student = null)
         {
             InitializeComponent();
         }
