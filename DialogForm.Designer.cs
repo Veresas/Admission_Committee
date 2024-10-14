@@ -94,11 +94,13 @@
             // 
             // com_gender
             // 
+            this.com_gender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.com_gender.FormattingEnabled = true;
             this.com_gender.Location = new System.Drawing.Point(260, 160);
             this.com_gender.Name = "com_gender";
-            this.com_gender.Size = new System.Drawing.Size(226, 24);
+            this.com_gender.Size = new System.Drawing.Size(226, 23);
             this.com_gender.TabIndex = 5;
+            this.com_gender.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.com_gender_DrawItem);
             // 
             // label5
             // 
@@ -136,11 +138,13 @@
             // 
             // com_educationForm
             // 
+            this.com_educationForm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.com_educationForm.FormattingEnabled = true;
             this.com_educationForm.Location = new System.Drawing.Point(260, 253);
             this.com_educationForm.Name = "com_educationForm";
-            this.com_educationForm.Size = new System.Drawing.Size(226, 24);
+            this.com_educationForm.Size = new System.Drawing.Size(226, 23);
             this.com_educationForm.TabIndex = 10;
+            this.com_educationForm.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.com_educationForm_DrawItem);
             // 
             // txt_Math
             // 
