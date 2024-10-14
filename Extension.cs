@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Framework.Contracts.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,11 +9,26 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Admission_Committee
 {
     internal static class Extension
     {
+        public static void AddEnumSourse<TCombobox, TSource>(this TCombobox target,
+            TSource source)
+            where TCombobox : System.Windows.Forms.ComboBox
+            where TSource : Enum
+        {
+            foreach (var item in Enum.GetValues(source.GetType()))
+            {
+                target.Items.Add(item);
+            }
+            if (target.Items.Count > 0)
+            {
+                target.SelectedIndex = 0;
+            }
+        }
         public static void AddBinding<TControl, TSource>(this TControl target,
              Expression<Func<TControl, object>> targetProperty,
              TSource source,
