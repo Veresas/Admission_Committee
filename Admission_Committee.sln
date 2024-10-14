@@ -5,11 +5,11 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admission_Committee", "Admission_Committee.csproj", "{AB01B93F-2B8D-43E5-A1F5-A59879894C07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Contracts", "..\Framework.Contracts\Framework.Contracts.csproj", "{FF90AC77-2796-4ECD-8568-253357E42ED1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Contracts", "Framework.Contracts\Framework.Contracts.csproj", "{FF90AC77-2796-4ECD-8568-253357E42ED1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Manager", "..\Framework.Manager\Framework.Manager.csproj", "{21C85A0A-37C9-4422-9D0B-8230900E292E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Manager", "Framework.Manager\Framework.Manager.csproj", "{21C85A0A-37C9-4422-9D0B-8230900E292E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage.Memory", "..\Storege.Memory\Storage.Memory.csproj", "{7F863252-CCD0-4D2A-9193-4D644DC26175}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage.Memory", "Storege.Memory\Storage.Memory.csproj", "{7F863252-CCD0-4D2A-9193-4D644DC26175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
