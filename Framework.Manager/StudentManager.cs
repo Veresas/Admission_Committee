@@ -36,7 +36,7 @@ namespace Framework.Manager
             return new StudentStatsModel
             {
                 AllStudent = result.Count,
-                StudentWithEnoughScores = result.Where(x => x.MathScores + x.RusScores + x.ITScores == 150).Count(),
+                StudentWithEnoughScores = result.Where(x => x.MathScores + x.RusScores + x.ITScores >= 150).Count(),
             };
         }
     }

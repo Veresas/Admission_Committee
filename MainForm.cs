@@ -89,5 +89,33 @@ namespace Admission_Committee
             bindingSource.DataSource = await studentManager.GetAll();
             await SetStats();
         }
+
+        private void DG_students_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (DG_students.Columns[e.ColumnIndex].Name == "Gender")
+            {
+                var data = (Student)DG_students.Rows[e.RowIndex].DataBoundItem;
+                var gender = data.Gender;
+
+                e.Value = GetEnumDescription(gender);
+            }
+
+            if (DG_students.Columns[e.ColumnIndex].Name == "EducationForm")
+            {
+                var data = (Student)DG_students.Rows[e.RowIndex].DataBoundItem;
+                var Education = data.Education;
+
+                e.Value = GetEnumDescription(Education);
+            }
+        }
+
+        public static string GetEnumDescription(Enum value)
+        {
+            var field = value.GetType().GetField(value.ToString());
+            var attribute = field.GetCustomAttributes(typeof(DescriptionAttribute), false)
+                                 .FirstOrDefault() as DescriptionAttribute;
+
+            return attribute == null ? value.ToString() : attribute.Description;
+        }
     }
 }

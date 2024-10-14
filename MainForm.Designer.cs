@@ -168,6 +168,7 @@
             this.DG_students.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DG_students.Size = new System.Drawing.Size(1026, 369);
             this.DG_students.TabIndex = 3;
+            this.DG_students.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DG_students_CellFormatting);
             // 
             // StudentName
             // 
@@ -198,7 +199,7 @@
             // 
             // EducationForm
             // 
-            this.EducationForm.DataPropertyName = "EducationForm";
+            this.EducationForm.DataPropertyName = "Education";
             this.EducationForm.HeaderText = "Форма обученя";
             this.EducationForm.MinimumWidth = 6;
             this.EducationForm.Name = "EducationForm";

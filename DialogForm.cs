@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Admission_Committee
 {
@@ -36,6 +37,7 @@ namespace Admission_Committee
 
             com_gender.AddEnumSourse(this.student.Gender);
             com_educationForm.AddEnumSourse(this.student.Education);
+            com_gender.SelectedIndex = 0;
 
             txt_name.AddBinding(x => x.Text, this.student, x => x.Name, errorProvider1);
             com_gender.AddBinding(x => x.SelectedValue, this.student, x => x.Gender, errorProvider1);
@@ -48,10 +50,5 @@ namespace Admission_Committee
             
         }
 
-        private void but_accept_Click(object sender, EventArgs e)
-        {
-
-            MessageBox.Show(student.Gender.ToString());
-        }
     }
 }

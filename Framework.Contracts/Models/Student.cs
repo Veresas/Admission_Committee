@@ -14,8 +14,10 @@ namespace Framework.Contracts.Models
         [Required]
         [StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
+        [Required]
         public Gender Gender { get; set; }
         public DateTime BirthDay { get; set; } = new DateTime(2000, 1, 1);
+        [Required]
         public EducationFrom Education { get; set; }
         public int MathScores {  get; set; }
         public int RusScores { get; set; }
