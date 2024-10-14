@@ -25,8 +25,15 @@ namespace Admission_Committee
             DG_students.AutoGenerateColumns = false;
             DG_students.DataSource = bindingSource;
 
+            DG_students.DataError += DG_students_DataError;
         }
 
+        private void DG_students_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // Отображение сообщения об ошибке
+            MessageBox.Show($"Ошибка в строке {e.RowIndex + 1}, колонке {e.ColumnIndex + 1}.\nСообщение: {e.Exception.Message}", "Ошибка в DataGridView", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            e.ThrowException = false; // Предотвращаем выброс исключения
+        }
         private async void AddBut_Click(object sender, EventArgs e)
         {
             var addForm = new DialogForm();
@@ -77,9 +84,10 @@ namespace Admission_Committee
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
-
+            bindingSource.DataSource = await studentManager.GetAll();
+            await SetStats();
         }
     }
 }

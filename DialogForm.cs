@@ -38,13 +38,20 @@ namespace Admission_Committee
             com_educationForm.AddEnumSourse(this.student.Education);
 
             txt_name.AddBinding(x => x.Text, this.student, x => x.Name, errorProvider1);
-            com_gender.AddBinding(x => x.SelectedItem, this.student, x => x.Gender, errorProvider1);
-            com_educationForm.AddBinding(x => x.SelectedItem, this.student, x => x.Education, errorProvider1);
+            com_gender.AddBinding(x => x.SelectedValue, this.student, x => x.Gender, errorProvider1);
+            com_educationForm.AddBinding(x => x.SelectedValue, this.student, x => x.Education, errorProvider1);
             txt_Math.AddBinding(x => x.Text, this.student, x => x.MathScores, errorProvider1);
             txt_Rus.AddBinding(x => x.Text, this.student, x => x.RusScores, errorProvider1);
             txt_IT.AddBinding(x => x.Text, this.student, x => x.ITScores, errorProvider1);
             date_birtyDay.AddBinding(x => x.Value, this.student, x => x.BirthDay, errorProvider1);
+
+            
         }
 
+        private void but_accept_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show(student.Gender.ToString());
+        }
     }
 }

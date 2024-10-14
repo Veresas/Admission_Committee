@@ -207,7 +207,7 @@
             // 
             // ScoresMath
             // 
-            this.ScoresMath.DataPropertyName = "MathScore";
+            this.ScoresMath.DataPropertyName = "MathScores";
             this.ScoresMath.HeaderText = "Баллы по математике";
             this.ScoresMath.MinimumWidth = 6;
             this.ScoresMath.Name = "ScoresMath";
@@ -216,7 +216,7 @@
             // 
             // ScoresRus
             // 
-            this.ScoresRus.DataPropertyName = "RusScore";
+            this.ScoresRus.DataPropertyName = "RusScores";
             this.ScoresRus.HeaderText = "Баллы по русскому";
             this.ScoresRus.MinimumWidth = 6;
             this.ScoresRus.Name = "ScoresRus";
@@ -225,7 +225,7 @@
             // 
             // ScoresIT
             // 
-            this.ScoresIT.DataPropertyName = "ITScore";
+            this.ScoresIT.DataPropertyName = "ITScores";
             this.ScoresIT.HeaderText = "Баллы по информатике";
             this.ScoresIT.MinimumWidth = 6;
             this.ScoresIT.Name = "ScoresIT";

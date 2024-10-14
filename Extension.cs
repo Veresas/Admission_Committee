@@ -23,7 +23,7 @@ namespace Admission_Committee
         {
             var data = Enum.GetValues(source.GetType())
                .Cast<Enum>()
-               .Select(e => new { Value = e, Description = GetEnumDescription(e) })
+               .Select((e, index) => new { Value = e, Description = GetEnumDescription(e),Index = index + 1 })    
                .ToList();
 
             target.DataSource = data;

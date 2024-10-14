@@ -172,6 +172,7 @@
             this.but_accept.TabIndex = 14;
             this.but_accept.Text = "Подтвердить";
             this.but_accept.UseVisualStyleBackColor = true;
+            this.but_accept.Click += new System.EventHandler(this.but_accept_Click);
             // 
             // but_consel
             // 
