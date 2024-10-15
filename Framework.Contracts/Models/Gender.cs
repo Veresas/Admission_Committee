@@ -15,7 +15,5 @@ namespace Framework.Contracts.Models
 
         [Description("Женский")]
         Female = 2,
-
-        
     }
 }

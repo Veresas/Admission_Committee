@@ -16,6 +16,13 @@ namespace Admission_Committee
 {
     internal static class Extension
     {
+        /// <summary>
+        /// Расширение для Combobox принимает ввиде источника ресурсов Enum, и заполняет его значениями с разграничением на значения и отображения
+        /// </summary>
+        /// <typeparam name="TCombobox"></typeparam>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="target"></param>
+        /// <param name="source"></param>
         public static void AddEnumSourse<TCombobox, TSource>(this TCombobox target,
             TSource source)
             where TCombobox : System.Windows.Forms.ComboBox
@@ -23,7 +30,7 @@ namespace Admission_Committee
         {
             var data = Enum.GetValues(source.GetType())
                .Cast<Enum>()
-               .Select((e) => new { Value = e, Description = GetEnumDescription(e)})    
+               .Select((e) => new { Value = e, Description = GetEnumDescription(e) })
                .ToList();
 
             target.DataSource = data;
@@ -33,7 +40,7 @@ namespace Admission_Committee
             target.SelectedIndex = 0;
         }
 
-        public static string GetEnumDescription(Enum value)
+        private static string GetEnumDescription(Enum value)
         {
             var field = value.GetType().GetField(value.ToString());
             var attribute = field.GetCustomAttributes(typeof(DescriptionAttribute), false)
@@ -41,7 +48,16 @@ namespace Admission_Committee
 
             return attribute == null ? value.ToString() : attribute.Description;
         }
-
+        /// <summary>
+        /// Принимает управляющий элемент, ресур и значение русурса, и связывает значение элемента и поле ресурса
+        /// </summary>
+        /// <typeparam name="TControl"></typeparam>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="target"></param>
+        /// <param name="targetProperty"></param>
+        /// <param name="source"></param>
+        /// <param name="sourceProperty"></param>
+        /// <param name="errorProvider"></param>
         public static void AddBinding<TControl, TSource>(this TControl target,
              Expression<Func<TControl, object>> targetProperty,
              TSource source,
