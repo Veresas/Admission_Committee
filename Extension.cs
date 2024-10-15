@@ -1,24 +1,18 @@
-﻿using Framework.Contracts.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Admission_Committee
 {
     internal static class Extension
     {
         /// <summary>
-        /// Расширение для Combobox принимает ввиде источника ресурсов Enum, и заполняет его значениями с разграничением на значения и отображения
-        /// </summary>
+        /// Заполнение Combobox значениями переданного Enum
         /// <typeparam name="TCombobox"></typeparam>
         /// <typeparam name="TSource"></typeparam>
         /// <param name="target"></param>
@@ -49,8 +43,7 @@ namespace Admission_Committee
             return attribute == null ? value.ToString() : attribute.Description;
         }
         /// <summary>
-        /// Принимает управляющий элемент, ресур и значение русурса, и связывает значение элемента и поле ресурса
-        /// </summary>
+        /// Связывание элемента блока управления и значения ресурса
         /// <typeparam name="TControl"></typeparam>
         /// <typeparam name="TSource"></typeparam>
         /// <param name="target"></param>

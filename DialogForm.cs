@@ -1,15 +1,5 @@
-﻿using Framework.Contracts.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using System.Windows.Forms;
+using Framework.Contracts.Models;
 
 namespace Admission_Committee
 {
@@ -21,7 +11,7 @@ namespace Admission_Committee
         /// </summary>
         public Student Student => student;
         /// <summary>
-        /// Конструктор получает объект студента (или устаналивает null). При null создает пустой объект студена, иначе заполняет поля значенийми
+        /// Создает нового студента или заполняет данными переданного объекта
         /// </summary>
         /// <param name="student"></param>
         public DialogForm(Student student = null)

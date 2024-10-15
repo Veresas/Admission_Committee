@@ -1,14 +1,10 @@
-﻿using Framework.Contracts.Interfaces;
-using Framework.Contracts.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Framework.Contracts.Interfaces;
+using Framework.Contracts.Models;
 
 namespace Admission_Committee
 {
@@ -17,7 +13,7 @@ namespace Admission_Committee
         private IStudentManager studentManager;
         private BindingSource bindingSource;
         /// <summary>
-        /// Конструктор формы принемающий управляющий данными класс
+        /// Принимает управляющий класс, настривает привязку данных
         /// </summary>
         /// <param name="studentManager"></param>
         public MainForm(IStudentManager studentManager)
