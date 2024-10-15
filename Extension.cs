@@ -1,21 +1,22 @@
-﻿using Framework.Contracts.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Admission_Committee
 {
     internal static class Extension
     {
+        /// <summary>
+        /// Заполнение Combobox значениями переданного Enum
+        /// <typeparam name="TCombobox"></typeparam>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="target"></param>
+        /// <param name="source"></param>
         public static void AddEnumSourse<TCombobox, TSource>(this TCombobox target,
             TSource source)
             where TCombobox : System.Windows.Forms.ComboBox
@@ -23,7 +24,7 @@ namespace Admission_Committee
         {
             var data = Enum.GetValues(source.GetType())
                .Cast<Enum>()
-               .Select((e) => new { Value = e, Description = GetEnumDescription(e)})    
+               .Select((e) => new { Value = e, Description = GetEnumDescription(e) })
                .ToList();
 
             target.DataSource = data;
@@ -33,7 +34,7 @@ namespace Admission_Committee
             target.SelectedIndex = 0;
         }
 
-        public static string GetEnumDescription(Enum value)
+        private static string GetEnumDescription(Enum value)
         {
             var field = value.GetType().GetField(value.ToString());
             var attribute = field.GetCustomAttributes(typeof(DescriptionAttribute), false)
@@ -41,7 +42,15 @@ namespace Admission_Committee
 
             return attribute == null ? value.ToString() : attribute.Description;
         }
-
+        /// <summary>
+        /// Связывание элемента блока управления и значения ресурса
+        /// <typeparam name="TControl"></typeparam>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="target"></param>
+        /// <param name="targetProperty"></param>
+        /// <param name="source"></param>
+        /// <param name="sourceProperty"></param>
+        /// <param name="errorProvider"></param>
         public static void AddBinding<TControl, TSource>(this TControl target,
              Expression<Func<TControl, object>> targetProperty,
              TSource source,

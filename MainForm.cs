@@ -1,14 +1,10 @@
-﻿using Framework.Contracts.Interfaces;
-using Framework.Contracts.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Framework.Contracts.Interfaces;
+using Framework.Contracts.Models;
 
 namespace Admission_Committee
 {
@@ -16,6 +12,10 @@ namespace Admission_Committee
     {
         private IStudentManager studentManager;
         private BindingSource bindingSource;
+        /// <summary>
+        /// Принимает управляющий класс, настривает привязку данных
+        /// </summary>
+        /// <param name="studentManager"></param>
         public MainForm(IStudentManager studentManager)
         {
             this.studentManager = studentManager;
@@ -38,7 +38,7 @@ namespace Admission_Committee
         {
             var addForm = new DialogForm();
 
-            if(addForm.ShowDialog(this) == DialogResult.OK)
+            if (addForm.ShowDialog(this) == DialogResult.OK)
             {
                 await studentManager.Add(addForm.Student);
                 bindingSource.ResetBindings(false);
@@ -47,10 +47,10 @@ namespace Admission_Committee
         }
 
 
-        public async Task SetStats()
+        private async Task SetStats()
         {
             var result = await studentManager.GetStats();
-            AllStudentsStatus.Text =  $"Всего абетуриентов: {result.AllStudent}";
+            AllStudentsStatus.Text = $"Всего абетуриентов: {result.AllStudent}";
             StudentWithEnoughScoresStats.Text = $"Всего абетуриентов с суммой баллов больше 150: {result.StudentWithEnoughScores}";
 
         }
@@ -109,7 +109,7 @@ namespace Admission_Committee
             }
         }
 
-        public static string GetEnumDescription(Enum value)
+        private static string GetEnumDescription(Enum value)
         {
             var field = value.GetType().GetField(value.ToString());
             var attribute = field.GetCustomAttributes(typeof(DescriptionAttribute), false)

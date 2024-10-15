@@ -1,10 +1,7 @@
-﻿using Framework.Manager;
-using Storege.Memory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using Framework.Manager;
+using Storege.Memory;
 
 namespace Admission_Committee
 {
