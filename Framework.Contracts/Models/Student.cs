@@ -32,18 +32,18 @@ namespace Framework.Contracts.Models
         /// <summary>
         /// Результаты экзаменов по математике
         /// </summary>
+        [Range(0, double.MaxValue)]
         public int MathScores { get; set; }
         /// <summary>
         /// Результаты экзаменов по русскому языку
         /// </summary>
+        [Range(0, double.MaxValue)]
         public int RusScores { get; set; }
         /// <summary>
         /// Результаты экзаменов по информатике
         /// </summary>
+        [Range(0, double.MaxValue)]
         public int ITScores { get; set; }
-        /// <summary>
-        /// Расчетное поле для вывода в DataGrid суммарное колличество баллов
-        /// </summary>
-        public int SumScores { get; set; }
+
     }
 }

@@ -7,34 +7,24 @@ using Framework.Contracts.Models;
 
 namespace Storege.Memory
 {
+    /// <inheritdoc cref="IStudentStorage"/>
     public class StudentStorage : IStudentStorage
     {
 
         private List<Student> students;
 
-        /// <summary>
-        /// Конструктор для создания хранилища данных о студентах
-        /// </summary>
+        /// <inheritdoc cref="IStudentStorage"/>
         public StudentStorage()
         {
             students = new List<Student>();
         }
-        /// <summary>
-        /// Добавление нового студента
-        /// </summary>
-        /// <param name="student"></param>
-        /// <returns></returns>
+        /// <inheritdoc cref="IStudentStorage"/>
         public Task<Student> Add(Student student)
         {
-            student.SumScores = student.MathScores + student.RusScores + student.ITScores;
             students.Add(student);
             return Task.FromResult(student);
         }
-        /// <summary>
-        /// Удаление студента по id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <inheritdoc cref="IStudentStorage"/>
         public Task<bool> Delete(Guid id)
         {
             var person = students.FirstOrDefault(x => x.Id == id);
@@ -46,15 +36,11 @@ namespace Storege.Memory
 
             return Task.FromResult(false);
         }
-        /// <summary>
-        /// Изменение студента
-        /// </summary>
-        /// <param name="student"></param>
-        /// <returns></returns>
+        /// <inheritdoc cref="IStudentStorage"/>
         public Task Edit(Student student)
         {
             var target = students.FirstOrDefault(x => x.Id == student.Id);
-            if (student != null)
+            if (target != null)
             {
                 target.Name = student.Name;
                 target.Gender = student.Gender;
@@ -63,15 +49,11 @@ namespace Storege.Memory
                 target.MathScores = student.MathScores;
                 target.ITScores = student.ITScores;
                 target.RusScores = student.RusScores;
-                target.SumScores = student.MathScores + student.RusScores + student.ITScores;
             }
 
             return Task.CompletedTask;
         }
-        /// <summary>
-        /// Получение списка всех объектов студентов
-        /// </summary>
-        /// <returns></returns>
+        /// <inheritdoc cref="IStudentStorage"/>
         public Task<IReadOnlyCollection<Student>> GetAll()
             => Task.FromResult<IReadOnlyCollection<Student>>(students);
 

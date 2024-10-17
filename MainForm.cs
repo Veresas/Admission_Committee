@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Framework.Contracts.Interfaces;
 using Framework.Contracts.Models;
 
+
 namespace Admission_Committee
 {
     public partial class MainForm : Form
@@ -25,15 +26,8 @@ namespace Admission_Committee
             DG_students.AutoGenerateColumns = false;
             DG_students.DataSource = bindingSource;
 
-            DG_students.DataError += DG_students_DataError;
         }
 
-        private void DG_students_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            // Отображение сообщения об ошибке
-            MessageBox.Show($"Ошибка в строке {e.RowIndex + 1}, колонке {e.ColumnIndex + 1}.\nСообщение: {e.Exception.Message}", "Ошибка в DataGridView", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            e.ThrowException = false; // Предотвращаем выброс исключения
-        }
         private async void AddBut_Click(object sender, EventArgs e)
         {
             var addForm = new DialogForm();
@@ -107,6 +101,15 @@ namespace Admission_Committee
 
                 e.Value = GetEnumDescription(Education);
             }
+
+            if (DG_students.Columns[e.ColumnIndex].Name == "SumScores")
+            {
+                var data = (Student)DG_students.Rows[e.RowIndex].DataBoundItem;
+                var Sum = data.MathScores + data.RusScores + data.ITScores;
+
+                e.Value = Sum;
+            }
+
         }
 
         private static string GetEnumDescription(Enum value)
