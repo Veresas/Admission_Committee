@@ -30,8 +30,6 @@ namespace Admission_Committee
             target.DataSource = data;
             target.DisplayMember = "Description";
             target.ValueMember = "Value";
-
-            target.SelectedIndex = 0;
         }
 
         private static string GetEnumDescription(Enum value)

@@ -2,15 +2,12 @@
 
 namespace Framework.Manager.Model
 {
+    /// <inheritdoc cref="IStudentStats"/>
     public class StudentStatsModel : IStudentStats
     {
-        /// <summary>
-        /// Поле статистики о всех студентах
-        /// </summary>
+        /// <inheritdoc cref="IStudentStats"/>
         public int AllStudent { get; set; }
-        /// <summary>
-        /// Поле статистике о всех студентах набравщих необходимое количество баллов
-        /// </summary>
+        /// <inheritdoc cref="IStudentStats"/>
         public int StudentWithEnoughScores { get; set; }
     }
 }

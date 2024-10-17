@@ -165,13 +165,13 @@
             // 
             // but_accept
             // 
-            this.but_accept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.but_accept.Location = new System.Drawing.Point(72, 450);
             this.but_accept.Name = "but_accept";
             this.but_accept.Size = new System.Drawing.Size(117, 23);
             this.but_accept.TabIndex = 14;
             this.but_accept.Text = "Подтвердить";
             this.but_accept.UseVisualStyleBackColor = true;
+            this.but_accept.Click += new System.EventHandler(this.but_accept_Click);
             // 
             // but_consel
             // 

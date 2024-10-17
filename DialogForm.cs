@@ -40,9 +40,31 @@ namespace Admission_Committee
             txt_Math.AddBinding(x => x.Text, this.student, x => x.MathScores, errorProvider1);
             txt_Rus.AddBinding(x => x.Text, this.student, x => x.RusScores, errorProvider1);
             txt_IT.AddBinding(x => x.Text, this.student, x => x.ITScores, errorProvider1);
-            date_birtyDay.AddBinding(x => x.Value, this.student, x => x.BirthDay, errorProvider1);
+            date_birtyDay.AddBinding(x => x.Value, this.student, x => x.BirthDay);
 
         }
 
+        private void but_accept_Click(object sender, System.EventArgs e)
+        {
+            bool hasErrors = false;
+
+            foreach (Control control in this.Controls)
+            {
+                if (!string.IsNullOrEmpty(errorProvider1.GetError(control)))
+                {
+                    hasErrors = true;
+                    break;
+                }
+            }
+
+            // Если найдены ошибки, форма не закроется
+            if (hasErrors)
+            {
+                MessageBox.Show("Необходимо исправить ошибки перед закрытием формы.", "Ошибка валидации", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }
