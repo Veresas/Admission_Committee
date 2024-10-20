@@ -15,18 +15,21 @@ namespace Framework.Contracts.Interfaces
         /// </summary>
         /// <returns>Неимзменяемый список студентов</returns>
         Task<IReadOnlyCollection<Student>> GetAll();
+
         /// <summary>
         /// Добавление студента
         /// </summary>
         /// <param name="student"></param>
         /// <returns>Успешно выполненая задача, с объектом студента</returns>
         Task<Student> Add(Student student);
+
         /// <summary>
         /// Изменение студента
         /// </summary>
         /// <param name="student"></param>
         /// <returns>Успешно выполненая задача</returns>
         Task Edit(Student student);
+
         /// <summary>
         /// Удаление студента
         /// </summary>

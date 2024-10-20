@@ -10,7 +10,6 @@ namespace Storege.Memory
     /// <inheritdoc cref="IStudentStorage"/>
     public class StudentStorage : IStudentStorage
     {
-
         private List<Student> students;
 
         /// <inheritdoc cref="IStudentStorage"/>
@@ -18,12 +17,14 @@ namespace Storege.Memory
         {
             students = new List<Student>();
         }
+
         /// <inheritdoc cref="IStudentStorage"/>
         public Task<Student> Add(Student student)
         {
             students.Add(student);
             return Task.FromResult(student);
         }
+
         /// <inheritdoc cref="IStudentStorage"/>
         public Task<bool> Delete(Guid id)
         {
@@ -36,6 +37,7 @@ namespace Storege.Memory
 
             return Task.FromResult(false);
         }
+
         /// <inheritdoc cref="IStudentStorage"/>
         public Task Edit(Student student)
         {
@@ -53,9 +55,9 @@ namespace Storege.Memory
 
             return Task.CompletedTask;
         }
-        /// <inheritdoc cref="IStudentStorage"/>
+
+        // <inheritdoc cref="IStudentStorage"/>
         public Task<IReadOnlyCollection<Student>> GetAll()
             => Task.FromResult<IReadOnlyCollection<Student>>(students);
-
     }
 }

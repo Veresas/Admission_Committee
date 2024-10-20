@@ -62,20 +62,20 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1026, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1026, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 26);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // toolStrip1
@@ -85,9 +85,9 @@
             this.AddBut,
             this.EditBut,
             this.DeletBut});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1026, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1026, 31);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -97,7 +97,7 @@
             this.AddBut.Image = ((System.Drawing.Image)(resources.GetObject("AddBut.Image")));
             this.AddBut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AddBut.Name = "AddBut";
-            this.AddBut.Size = new System.Drawing.Size(29, 24);
+            this.AddBut.Size = new System.Drawing.Size(29, 28);
             this.AddBut.Text = "toolStripButton1";
             this.AddBut.Click += new System.EventHandler(this.AddBut_Click);
             // 
@@ -107,7 +107,7 @@
             this.EditBut.Image = ((System.Drawing.Image)(resources.GetObject("EditBut.Image")));
             this.EditBut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.EditBut.Name = "EditBut";
-            this.EditBut.Size = new System.Drawing.Size(29, 24);
+            this.EditBut.Size = new System.Drawing.Size(29, 28);
             this.EditBut.Text = "toolStripButton2";
             this.EditBut.Click += new System.EventHandler(this.EditBut_Click);
             // 
@@ -117,7 +117,7 @@
             this.DeletBut.Image = ((System.Drawing.Image)(resources.GetObject("DeletBut.Image")));
             this.DeletBut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeletBut.Name = "DeletBut";
-            this.DeletBut.Size = new System.Drawing.Size(29, 24);
+            this.DeletBut.Size = new System.Drawing.Size(29, 28);
             this.DeletBut.Text = "toolStripButton3";
             this.DeletBut.Click += new System.EventHandler(this.DeletBut_Click);
             // 
@@ -160,13 +160,13 @@
             this.ScoresIT,
             this.SumScores});
             this.DG_students.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DG_students.Location = new System.Drawing.Point(0, 55);
+            this.DG_students.Location = new System.Drawing.Point(0, 61);
             this.DG_students.Name = "DG_students";
             this.DG_students.ReadOnly = true;
             this.DG_students.RowHeadersWidth = 51;
             this.DG_students.RowTemplate.Height = 24;
             this.DG_students.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DG_students.Size = new System.Drawing.Size(1026, 369);
+            this.DG_students.Size = new System.Drawing.Size(1026, 363);
             this.DG_students.TabIndex = 3;
             this.DG_students.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DG_students_CellFormatting);
             // 

@@ -1,4 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.Remoting.Contexts;
+using System.Windows.Forms;
 using Framework.Contracts.Models;
 
 namespace Admission_Committee
@@ -6,10 +9,12 @@ namespace Admission_Committee
     public partial class DialogForm : Form
     {
         private Student student;
+
         /// <summary>
         /// Передача объекта студента, над которым проводились манипуляции
         /// </summary>
         public Student Student => student;
+
         /// <summary>
         /// Создает нового студента или заполняет данными переданного объекта
         /// </summary>
@@ -35,8 +40,8 @@ namespace Admission_Committee
             com_gender.SelectedIndex = 0;
 
             txt_name.AddBinding(x => x.Text, this.student, x => x.Name, errorProvider1);
-            com_gender.AddBinding(x => x.SelectedValue, this.student, x => x.Gender, errorProvider1);
-            com_educationForm.AddBinding(x => x.SelectedValue, this.student, x => x.Education, errorProvider1);
+            com_gender.AddBinding(x => x.SelectedValue, this.student, x => x.Gender);
+            com_educationForm.AddBinding(x => x.SelectedValue, this.student, x => x.Education);
             txt_Math.AddBinding(x => x.Text, this.student, x => x.MathScores, errorProvider1);
             txt_Rus.AddBinding(x => x.Text, this.student, x => x.RusScores, errorProvider1);
             txt_IT.AddBinding(x => x.Text, this.student, x => x.ITScores, errorProvider1);
@@ -46,25 +51,16 @@ namespace Admission_Committee
 
         private void but_accept_Click(object sender, System.EventArgs e)
         {
-            bool hasErrors = false;
+            var context = new ValidationContext(student);
+            var results = new List<ValidationResult>();
+            bool isValid = Validator.TryValidateObject(student, context, results, validateAllProperties: true);
 
-            foreach (Control control in this.Controls)
+            if (!isValid)
             {
-                if (!string.IsNullOrEmpty(errorProvider1.GetError(control)))
-                {
-                    hasErrors = true;
-                    break;
-                }
-            }
-
-            // Если найдены ошибки, форма не закроется
-            if (hasErrors)
-            {
-                MessageBox.Show("Необходимо исправить ошибки перед закрытием формы.", "Ошибка валидации", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
         }
     }
 }

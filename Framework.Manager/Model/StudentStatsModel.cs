@@ -7,6 +7,7 @@ namespace Framework.Manager.Model
     {
         /// <inheritdoc cref="IStudentStats"/>
         public int AllStudent { get; set; }
+
         /// <inheritdoc cref="IStudentStats"/>
         public int StudentWithEnoughScores { get; set; }
     }

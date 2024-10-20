@@ -13,6 +13,7 @@ namespace Admission_Committee
     {
         private IStudentManager studentManager;
         private BindingSource bindingSource;
+
         /// <summary>
         /// Принимает управляющий класс, настривает привязку данных
         /// </summary>

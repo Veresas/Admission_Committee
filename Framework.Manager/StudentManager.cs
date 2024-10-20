@@ -12,23 +12,29 @@ namespace Framework.Manager
     public class StudentManager : IStudentManager
     {
         private IStudentStorage storage;
+
         /// <inheritdoc cref="IStudentManager"/>
         public StudentManager(IStudentStorage storage)
         {
             this.storage = storage;
         }
+
         /// <inheritdoc cref="IStudentManager"/>
         public Task<IReadOnlyCollection<Student>> GetAll()
             => storage.GetAll();
+
         /// <inheritdoc cref="IStudentManager"/>
         public Task<Student> Add(Student student)
             => storage.Add(student);
+
         /// <inheritdoc cref="IStudentManager"/>
         public Task Edit(Student student)
             => storage.Edit(student);
+
         /// <inheritdoc cref="IStudentManager"/>
         public Task<bool> Delete(Guid id)
             => storage.Delete(id);
+
         /// <inheritdoc cref="IStudentManager"/>
         public async Task<IStudentStats> GetStats()
         {
@@ -40,5 +46,4 @@ namespace Framework.Manager
             };
         }
     }
-
 }
