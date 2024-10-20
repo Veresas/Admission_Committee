@@ -40,6 +40,7 @@ namespace Admission_Committee
 
             return attribute == null ? value.ToString() : attribute.Description;
         }
+
         /// <summary>
         /// Связывание элемента блока управления и значения ресурса
         /// <typeparam name="TControl"></typeparam>

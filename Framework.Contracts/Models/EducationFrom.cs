@@ -9,11 +9,13 @@ namespace Framework.Contracts.Models
         /// </summary>
         [Description("Очно")]
         fullTime = 1,
+
         /// <summary>
         /// Очно-заочная форма обучения
         /// </summary>
         [Description("Очно-заочно")]
         HalfTime = 2,
+
         /// <summary>
         /// Заочная форма обучения
         /// </summary>

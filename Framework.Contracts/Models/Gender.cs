@@ -9,6 +9,7 @@ namespace Framework.Contracts.Models
         /// </summary>
         [Description("Мужской")]
         Male = 1,
+
         /// <summary>
         /// Женский пол
         /// </summary>
