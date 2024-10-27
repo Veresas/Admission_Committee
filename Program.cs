@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using Framework.Manager;
-using Storege.Memory;
+using Manager;
+using Microsoft.Extensions.Logging;
+using Storege;
+using static Microsoft.Extensions.Logging.ILoggerFactory;
 
 namespace Admission_Committee
 {
@@ -15,8 +17,12 @@ namespace Admission_Committee
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var factory = LoggerFactory.Create(builder => builder.AddDebug());
+            ILogger logger = factory.CreateLogger("Program");
+
             var storage = new StudentStorage();
-            var manager = new StudentManager(storage);
+            var manager = new StudentManager(storage, logger);
             Application.Run(new MainForm(manager));
         }
     }

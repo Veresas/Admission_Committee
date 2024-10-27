@@ -1,10 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Framework.Contracts.Interfaces;
-using Framework.Contracts.Models;
+using Contracts.Interfaces;
+using Contracts.Models;
+using Microsoft.Extensions.Logging;
 
 
 namespace Admission_Committee
@@ -14,10 +16,10 @@ namespace Admission_Committee
         private IStudentManager studentManager;
         private BindingSource bindingSource;
 
+
         /// <summary>
         /// Принимает управляющий класс, настривает привязку данных
         /// </summary>
-        /// <param name="studentManager"></param>
         public MainForm(IStudentManager studentManager)
         {
             this.studentManager = studentManager;

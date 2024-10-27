@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace Framework.Contracts.Models
+
+namespace Contracts.Models
 {
+    /// <summary> Представление абитуриента </summary>
     public class Student
     {
         /// <summary>
@@ -12,16 +13,16 @@ namespace Framework.Contracts.Models
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Поле имени студента
+        /// Имя студента
         /// </summary>
-        [Required]
-        [StringLength(50, MinimumLength = 3)]
+        //[Required]
+        //[StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
 
         /// <summary>
         /// Пол студента
         /// </summary>
-        [Required]
+        //[Required]
         public Gender Gender { get; set; }
 
         /// <summary>
@@ -32,25 +33,25 @@ namespace Framework.Contracts.Models
         /// <summary>
         /// Форма обучения
         /// </summary>
-        [Required]
+        //[Required]
         public EducationFrom Education { get; set; }
 
         /// <summary>
         /// Результаты экзаменов по математике
         /// </summary>
-        [Range(0, double.MaxValue)]
+        //[Range(0, double.MaxValue)]
         public int MathScores { get; set; }
 
         /// <summary>
         /// Результаты экзаменов по русскому языку
         /// </summary>
-        [Range(0, double.MaxValue)]
+        //[Range(0, double.MaxValue)]
         public int RusScores { get; set; }
 
         /// <summary>
         /// Результаты экзаменов по информатике
         /// </summary>
-        [Range(0, double.MaxValue)]
+        //[Range(0, double.MaxValue)]
         public int ITScores { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
-using Framework.Contracts.Models;
+using Contracts.Models;
 
 namespace Admission_Committee
 {
