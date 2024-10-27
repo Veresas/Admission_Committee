@@ -1,7 +1,7 @@
 ﻿namespace Contracts.Interfaces
 {
     /// <summary>
-    /// Представляет интерфеейс для статистики
+    /// Представляет пункты статистики
     /// </summary>
     public interface IStudentStats
     {

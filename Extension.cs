@@ -13,10 +13,7 @@ namespace Admission_Committee
     {
         /// <summary>
         /// Заполнение Combobox значениями переданного Enum
-        /// <typeparam name="TCombobox"></typeparam>
-        /// <typeparam name="TSource"></typeparam>
-        /// <param name="target"></param>
-        /// <param name="source"></param>
+        /// </summary>
         public static void AddEnumSourse<TCombobox, TSource>(this TCombobox target,
             TSource source)
             where TCombobox : System.Windows.Forms.ComboBox
@@ -43,13 +40,7 @@ namespace Admission_Committee
 
         /// <summary>
         /// Связывание элемента блока управления и значения ресурса
-        /// <typeparam name="TControl"></typeparam>
-        /// <typeparam name="TSource"></typeparam>
-        /// <param name="target"></param>
-        /// <param name="targetProperty"></param>
-        /// <param name="source"></param>
-        /// <param name="sourceProperty"></param>
-        /// <param name="errorProvider"></param>
+        /// </summary>
         public static void AddBinding<TControl, TSource>(this TControl target,
              Expression<Func<TControl, object>> targetProperty,
              TSource source,

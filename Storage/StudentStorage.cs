@@ -18,15 +18,13 @@ namespace Storege
             students = new List<Student>();
         }
 
-        /// <inheritdoc cref="IStudentStorage"/>
-        public Task<Student> Add(Student student)
+        Task<Student> IStudentStorage.Add(Student student)
         {
             students.Add(student);
             return Task.FromResult(student);
         }
 
-        /// <inheritdoc cref="IStudentStorage"/>
-        public Task<bool> Delete(Guid id)
+        Task<bool> IStudentStorage.Delete(Guid id)
         {
             var person = students.FirstOrDefault(x => x.Id == id);
             if (person != null)
@@ -38,8 +36,7 @@ namespace Storege
             return Task.FromResult(false);
         }
 
-        /// <inheritdoc cref="IStudentStorage"/>
-        public Task Edit(Student student)
+        Task IStudentStorage.Edit(Student student)
         {
             var target = students.FirstOrDefault(x => x.Id == student.Id);
             if (target != null)
@@ -56,8 +53,7 @@ namespace Storege
             return Task.CompletedTask;
         }
 
-        // <inheritdoc cref="IStudentStorage"/>
-        public Task<IReadOnlyCollection<Student>> GetAll()
+        Task<IReadOnlyCollection<Student>> IStudentStorage.GetAll()
             => Task.FromResult<IReadOnlyCollection<Student>>(students);
     }
 }

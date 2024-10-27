@@ -22,8 +22,8 @@ namespace Admission_Committee
             ILogger logger = factory.CreateLogger("Program");
 
             var storage = new StudentStorage();
-            var manager = new StudentManager(storage);
-            Application.Run(new MainForm(manager, logger));
+            var manager = new StudentManager(storage, logger);
+            Application.Run(new MainForm(manager));
         }
     }
 }

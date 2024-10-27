@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace Contracts.Models
 {
+    /// <summary> Представление абитуриента </summary>
     public class Student
     {
         /// <summary>
@@ -12,7 +13,7 @@ namespace Contracts.Models
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Поле имени студента
+        /// Имя студента
         /// </summary>
         //[Required]
         //[StringLength(50, MinimumLength = 3)]

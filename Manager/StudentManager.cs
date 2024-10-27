@@ -5,38 +5,35 @@ using System.Threading.Tasks;
 using Contracts.Interfaces;
 using Contracts.Models;
 using Manager.Model;
+using Microsoft.Extensions.Logging;
 
 namespace Manager
 {
     /// <inheritdoc cref="IStudentManager"/>
     public class StudentManager : IStudentManager
     {
+        private ILogger logger;
         private IStudentStorage storage;
 
         /// <inheritdoc cref="IStudentManager"/>
-        public StudentManager(IStudentStorage storage)
+        public StudentManager(IStudentStorage storage, ILogger log)
         {
             this.storage = storage;
+            logger = log;
         }
 
-        /// <inheritdoc cref="IStudentManager"/>
-        public Task<IReadOnlyCollection<Student>> GetAll()
+        Task<IReadOnlyCollection<Student>> IStudentManager.GetAll()
             => storage.GetAll();
-
-        /// <inheritdoc cref="IStudentManager"/>
-        public Task<Student> Add(Student student)
+        Task<Student> IStudentManager.Add(Student student)
             => storage.Add(student);
 
-        /// <inheritdoc cref="IStudentManager"/>
-        public Task Edit(Student student)
+        Task IStudentManager.Edit(Student student)
             => storage.Edit(student);
 
-        /// <inheritdoc cref="IStudentManager"/>
-        public Task<bool> Delete(Guid id)
+        Task<bool> IStudentManager.Delete(Guid id)
             => storage.Delete(id);
 
-        /// <inheritdoc cref="IStudentManager"/>
-        public async Task<IStudentStats> GetStats()
+        async Task<IStudentStats> IStudentManager.GetStats()
         {
             var result = await storage.GetAll();
             return new StudentStatsModel

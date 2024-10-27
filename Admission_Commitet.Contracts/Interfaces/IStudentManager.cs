@@ -11,36 +11,28 @@ namespace Contracts.Interfaces
     public interface IStudentManager
     {
         /// <summary>
-        /// Получение всех студентов из хранилища
+        /// Получение всех <see cref="Student"/> из <see cref="IStudentStorage"/>
         /// </summary>
-        /// <returns>Результат вызова метода GetAll() класса хранилища</returns>
         Task<IReadOnlyCollection<Student>> GetAll();
 
         /// <summary>
-        /// Добваление новых студентов в хранилище
+        /// Добваление новых <see cref="Student"/> в <see cref="IStudentStorage"/>
         /// </summary>
-        /// <param name="student"></param>
-        /// <returns>Результат вызова метода Add() класса хранилища</returns>
         Task<Student> Add(Student student);
 
         /// <summary>
-        /// Изменение существующего студента в хранилище
+        /// Изменение существующего <see cref="Student"/> в <see cref="IStudentStorage"/>
         /// </summary>
-        /// <param name="student"></param>
-        /// <returns>Результат вызова метода Edit() класса хранилища</returns>
         Task Edit(Student student);
 
         /// <summary>
-        /// Удаление студента из хранилища
+        /// Удаление <see cref="Student"/> из <see cref="IStudentStorage"/>
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Результат вызова метода Delet() класса хранилища</returns>
         Task<bool> Delete(Guid id);
 
         /// <summary>
-        /// Получение статистики
+        /// Получение <see cref="IStudentStats"/>
         /// </summary>
-        /// <returns>Класс представляющий статистику о студентах</returns>
         Task<IStudentStats> GetStats();
     }
 }

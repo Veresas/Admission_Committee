@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,21 +15,16 @@ namespace Admission_Committee
     {
         private IStudentManager studentManager;
         private BindingSource bindingSource;
-        private ILogger logger;
+
 
         /// <summary>
         /// Принимает управляющий класс, настривает привязку данных
         /// </summary>
-        /// <param name="studentManager"></param>
-        public MainForm(IStudentManager studentManager, ILogger logger)
+        public MainForm(IStudentManager studentManager)
         {
             this.studentManager = studentManager;
             bindingSource = new BindingSource();
             InitializeComponent();
-
-            this.logger = logger;
-
-            logger.lo
 
             DG_students.AutoGenerateColumns = false;
             DG_students.DataSource = bindingSource;
