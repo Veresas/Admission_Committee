@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Framework.Contracts.Models
+namespace Contracts.Models
 {
     public enum EducationFrom
     {

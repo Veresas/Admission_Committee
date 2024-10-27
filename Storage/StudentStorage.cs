@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Framework.Contracts.Interfaces;
-using Framework.Contracts.Models;
+using Contracts.Interfaces;
+using Contracts.Models;
 
-namespace Storege.Memory
+namespace Storege
 {
     /// <inheritdoc cref="IStudentStorage"/>
     public class StudentStorage : IStudentStorage

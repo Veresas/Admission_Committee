@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Framework.Contracts.Models;
+using Contracts.Models;
 
-namespace Framework.Contracts.Interfaces
+namespace Contracts.Interfaces
 {
     /// <summary>
     /// Хранение данных

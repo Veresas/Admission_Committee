@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Framework.Contracts.Interfaces;
-using Framework.Contracts.Models;
-using Framework.Manager.Model;
+using Contracts.Interfaces;
+using Contracts.Models;
+using Manager.Model;
 
-namespace Framework.Manager
+namespace Manager
 {
     /// <inheritdoc cref="IStudentManager"/>
     public class StudentManager : IStudentManager

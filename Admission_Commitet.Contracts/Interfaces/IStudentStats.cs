@@ -1,4 +1,4 @@
-﻿namespace Framework.Contracts.Interfaces
+﻿namespace Contracts.Interfaces
 {
     /// <summary>
     /// Представляет интерфеейс для статистики
