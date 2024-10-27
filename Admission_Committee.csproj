@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Veresus.Alexander_Ozhered.Admission_Committee.1.0.0\lib\netstandard2.0\Contracts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -142,10 +145,6 @@
     <ProjectReference Include="Manager\Manager.csproj">
       <Project>{f402a6c3-b1ac-4cd4-843e-8b9c28487b0a}</Project>
       <Name>Manager</Name>
-    </ProjectReference>
-    <ProjectReference Include="Admission_Commitet.Contracts\Contracts.csproj">
-      <Project>{ebcae290-5aad-4f38-903b-a0228730a414}</Project>
-      <Name>Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="Storage\Storage.csproj">
       <Project>{5d9c37b1-9382-4989-b539-5d8e5def4598}</Project>

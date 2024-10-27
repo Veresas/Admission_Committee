@@ -1,10 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <BuildPackage>true</BuildPackage>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Alexander Ozhered</Authors>
+    <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
+    <PackageId>Veresus.Alexander_Ozhered.Admission_Committee</PackageId>
+    <Title>Contracts for Admission_Committee</Title>
+    <Authors>Alexander_Ozhered</Authors>
     <Company>Veresus</Company>
-    <Title>Admission_Comitet</Title>
+    <Description>package for studying.</Description>
+    <Product>Admission_Commttee</Product>
   </PropertyGroup>
 
   <ItemGroup>

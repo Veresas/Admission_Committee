@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
+    <PackageReference Include="Veresus.Alexander_Ozhered.Admission_Committee" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
