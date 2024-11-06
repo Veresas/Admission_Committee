@@ -67,7 +67,16 @@ namespace Manager
             var delete = storage.Delete(id);
 
             stopwatch.Stop();
-            logger.LogInformation("Удаление студента с индетификаторм {0}: {1} мс", id, stopwatch.ElapsedMilliseconds);
+
+            if (delete.Result == true)
+            {
+                logger.LogInformation("Удаление студента с индетификаторм {0}: {1} мс - успешно", id, stopwatch.ElapsedMilliseconds);
+            }
+            else
+            {
+                logger.LogInformation("Удаление студента с индетификаторм {0}: {1} мс - ошибка удаления", id, stopwatch.ElapsedMilliseconds);
+
+            }
 
             return delete;
         }
