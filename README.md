@@ -4,4 +4,4 @@
 Работа с DataGrid
 Варинт 2: Приемная комиссия
 Создание NuGet пакет (в пакет превращен проект Contracts)
-Добвлен логер в Maneger
+Entity Framwork
