@@ -43,8 +43,9 @@ namespace Manager
             var add = storage.Add(student);
 
             stopwatch.Stop();
-            logger.LogInformation("Добавление студента : {1} мс", stopwatch.ElapsedMilliseconds);
-
+            logger.LogInformation("Добавление студента {id} : {elapsedTime} мс. {@Per}",
+                                                            student.Id,
+                                                            stopwatch.ElapsedMilliseconds, student);
             return add;
         }
 
@@ -88,7 +89,7 @@ namespace Manager
             var result = await storage.GetAll();
 
             stopwatch.Stop();
-            logger.LogInformation("Получение всей статистики: {1} мс", stopwatch.ElapsedMilliseconds);
+            logger.LogInformation("Получение всей статистики: {0} мс", stopwatch.ElapsedMilliseconds);
 
 
             return new StudentStatsModel
