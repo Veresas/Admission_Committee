@@ -6,6 +6,7 @@ using Serilog.Extensions.Logging;
 using Serilog;
 using Storege;
 using static Microsoft.Extensions.Logging.ILoggerFactory;
+using Database;
 
 namespace Admission_Committee
 {
@@ -27,7 +28,7 @@ namespace Admission_Committee
 
             var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger("datagrid");
 
-            var storage = new StudentStorage();
+            var storage = new DBase();
             var manager = new StudentManager(storage, logger);
             Application.Run(new MainForm(manager));
         }

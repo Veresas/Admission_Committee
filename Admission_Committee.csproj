@@ -158,6 +158,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Database\Database.csproj">
+      <Project>{d769079e-3668-4378-9994-311d4b304c54}</Project>
+      <Name>Database</Name>
+    </ProjectReference>
     <ProjectReference Include="Manager\Manager.csproj">
       <Project>{f402a6c3-b1ac-4cd4-843e-8b9c28487b0a}</Project>
       <Name>Manager</Name>
