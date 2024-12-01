@@ -13,12 +13,12 @@ namespace Manager
     /// <inheritdoc cref="IStudentManager"/>
     public class StudentManager : IStudentManager
     {
-        private ILogger logger;
+        private ILogger<IStudentManager> logger;
         private IStudentStorage storage;
         private Stopwatch stopwatch;
 
         /// <inheritdoc cref="IStudentManager"/>
-        public StudentManager(IStudentStorage storage, ILogger log)
+        public StudentManager(IStudentStorage storage, ILogger<IStudentManager> log)
         {
             stopwatch = new Stopwatch();
             this.storage = storage;

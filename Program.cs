@@ -7,6 +7,7 @@ using Serilog;
 using Storege;
 using static Microsoft.Extensions.Logging.ILoggerFactory;
 using Database;
+using Contracts.Interfaces;
 
 namespace Admission_Committee
 {
@@ -26,7 +27,7 @@ namespace Admission_Committee
                 .WriteTo.Seq("http://localhost:5341", apiKey: "1rgZvYsfVjUgJgILEuWz")
                 .CreateLogger();
 
-            var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger("datagrid");
+            var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger<IStudentManager>();
 
             var storage = new DBase();
             var manager = new StudentManager(storage, logger);

@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Contracts.Models;
+using System.Runtime.Remoting.Contexts;
 
 
 namespace Database
 {
-    internal class DataContext : DbContext
+    public class DataContext : DbContext
     {
         public DataContext() : base("ConectStr")
         {
