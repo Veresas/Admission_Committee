@@ -8,7 +8,7 @@ using Contracts.Models;
 
 namespace Admission_Committee
 {
-    internal class ValidStident : Student
+    internal class ValidStudent : Student
     {
         /// <summary>
         /// Уникальный индетификатор студента

@@ -14,7 +14,7 @@ namespace Manager.Test
     {
         private readonly IStudentManager studentManager;
         private readonly Mock<IStudentStorage> storageMock;
-        private readonly Mock<ILogger> loggerMock;
+        private readonly Mock<ILogger<IStudentManager>> loggerMock;
 
         /// <summary>
         /// <see cref="IStudentManager"/>
@@ -22,7 +22,7 @@ namespace Manager.Test
         public ManagerUnitTest()
         {
             storageMock = new Mock<IStudentStorage>();
-            loggerMock = new Mock<ILogger>();
+            loggerMock = new Mock<ILogger<IStudentManager>>();
 
             loggerMock.Setup(x => x.Log(LogLevel.Information,
                 It.IsAny<EventId>(),
@@ -30,7 +30,7 @@ namespace Manager.Test
                 null,
                 It.IsAny<Func<It.IsAnyType, Exception, string>>()));
 
-            studentManager = new StudentManager(storageMock.Object, Mock.Of<ILogger>());
+            studentManager = new StudentManager(storageMock.Object, Mock.Of<ILogger<IStudentManager>>());
         }
 
         /// <summary>

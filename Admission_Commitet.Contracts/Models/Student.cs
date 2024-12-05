@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace Contracts.Models
@@ -15,43 +16,50 @@ namespace Contracts.Models
         /// <summary>
         /// Имя студента
         /// </summary>
-        //[Required]
-        //[StringLength(50, MinimumLength = 3)]
+        [DisplayName("Имя")]
+        [Required]
+        [StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
 
         /// <summary>
         /// Пол студента
         /// </summary>
-        //[Required]
+        [Required]
+        [DisplayName("Гендер")]
         public Gender Gender { get; set; }
 
         /// <summary>
         /// Дата рождения студента
         /// </summary>
+        [DisplayName("День рождения")]
         public DateTime BirthDay { get; set; } = new DateTime(2000, 1, 1);
 
         /// <summary>
         /// Форма обучения
         /// </summary>
-        //[Required]
+        [Required]
+        [DisplayName("Форма обучения")]
         public EducationFrom Education { get; set; }
 
         /// <summary>
         /// Результаты экзаменов по математике
         /// </summary>
-        //[Range(0, double.MaxValue)]
+        [Range(0, 100)]
+        [DisplayName("Балл за математику")]
         public int MathScores { get; set; }
 
         /// <summary>
         /// Результаты экзаменов по русскому языку
         /// </summary>
-        //[Range(0, double.MaxValue)]
+        [Range(0, 100)]
+        [DisplayName("Балл за русский язык")]
         public int RusScores { get; set; }
 
         /// <summary>
         /// Результаты экзаменов по информатике
         /// </summary>
-        //[Range(0, double.MaxValue)]
+        [Range(0, 100)]
+        [DisplayName("Балл за IT")]
         public int ITScores { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace Admission_Committee
     public partial class DialogForm : Form
     {
         private Student student;
-        private ValidStident validStudent;
+        private ValidStudent validStudent;
 
         /// <summary>
         /// Передача объекта студента, над которым проводились манипуляции
@@ -24,10 +24,10 @@ namespace Admission_Committee
         public DialogForm(Student student = null)
         {
 
-            validStudent = student == null ? new ValidStident()
+            validStudent = student == null ? new ValidStudent()
             {
                 Id = Guid.NewGuid(),
-            } : new ValidStident
+            } : new ValidStudent
             {
                 Id = student.Id,
                 Name = student.Name,
